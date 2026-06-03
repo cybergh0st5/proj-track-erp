@@ -84,9 +84,8 @@ https://drive.google.com/file/d/1DNVqkQAmFSzPVq6DOGZ6gKMDDlszulEa/view?usp=shari
 
 ---
 
-## Installation
+## Project Availability
 
-1. Clone the repository
+Proj.Track ERP is currently a portfolio and demonstration project.
 
-```bash
-git clone https://github.com/cybergh0st5/proj-track-erp.git
+If you are interested in testing, licensing, purchasing, or collaborating on this project, please contact the author.

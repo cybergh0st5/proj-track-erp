@@ -8,6 +8,18 @@ Proj.Track ERP is a desktop application designed to help small businesses manage
 
 This project was developed as a personal software engineering portfolio project and practical ERP solution for small business operations.
 
+## Copyright Notice
+
+Copyright © 2026 Paul Andrew Idos. All rights reserved.
+
+This repository is published for portfolio, educational, and demonstration purposes.
+
+The source code may be viewed and evaluated through GitHub. No permission is granted to copy, modify, redistribute, sublicense, sell, or incorporate this software into other projects or commercial products without the express written permission of the author.
+
+All intellectual property rights remain the property of the author.
+
+If you are interested in licensing, purchasing, or collaborating on this project, please contact the author.
+
 ---
 
 ## Features

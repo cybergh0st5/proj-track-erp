@@ -1,0 +1,126 @@
+; =========================================
+; PROJ.TRACK ERP TRIAL INSTALLER
+; =========================================
+
+#define MyAppName "Proj.Track ERP Trial"
+#define MyAppVersion "1.0 Trial"
+#define MyAppPublisher "PAI"
+#define MyAppExeName "Proj.Track Trial.exe"
+
+
+; =========================================
+; SETUP
+; =========================================
+
+[Setup]
+
+AppId={{8F9A5C9D-6A6A-4A5A-9D2F-TRIAL2026}}
+
+AppName={#MyAppName}
+
+AppVersion={#MyAppVersion}
+
+AppPublisher={#MyAppPublisher}
+
+DefaultDirName={autopf}\Proj.Track ERP Trial
+
+DefaultGroupName=Proj.Track ERP Trial
+
+OutputDir=installer
+
+OutputBaseFilename=ProjTrack_Trial_Setup
+
+Compression=lzma
+
+SolidCompression=yes
+
+WizardStyle=modern
+
+PrivilegesRequired=admin
+
+ArchitecturesAllowed=x64compatible
+
+ArchitecturesInstallIn64BitMode=x64compatible
+
+SetupIconFile=app\assets\projtrack_icon.ico
+
+UninstallDisplayIcon={app}\{#MyAppExeName}
+
+
+; =========================================
+; FILES
+; =========================================
+
+[Files]
+
+Source: "dist\Proj.Track Trial.exe"; DestDir: "{app}"; Flags: ignoreversion
+
+
+; =========================================
+; ICONS
+; =========================================
+
+[Icons]
+
+Name: "{group}\Proj.Track ERP Trial"; Filename: "{app}\{#MyAppExeName}"
+
+Name: "{commondesktop}\Proj.Track ERP Trial"; Filename: "{app}\{#MyAppExeName}"
+
+
+; =========================================
+; RUN AFTER INSTALL
+; =========================================
+
+[Run]
+
+Filename: "{app}\{#MyAppExeName}"; \
+Description: "Launch Proj.Track ERP Trial"; \
+Flags: nowait postinstall skipifsilent
+
+
+; =========================================
+; UNINSTALL CLEANUP
+; =========================================
+
+[UninstallDelete]
+
+; KEEP APPDATA TO PREVENT TRIAL RESET
+
+Type: filesandordirs; Name: "{app}"
+
+
+; =========================================
+; INSTALL FINISH MESSAGE
+; =========================================
+
+[Messages]
+
+FinishedLabel=Proj.Track ERP Trial has been installed successfully.
+
+
+; =========================================
+; OPTIONAL TRIAL MESSAGE
+; =========================================
+
+[Code]
+
+procedure CurPageChanged(CurPageID: Integer);
+begin
+
+  if CurPageID = wpFinished then
+  begin
+
+    MsgBox(
+      'This is a 30-day trial version for testing purposes only.',
+      mbInformation,
+      MB_OK
+    );
+
+  end;
+
+end;
+
+
+
+
+pyinstaller --windowed --onefile --clean --icon=app/assets/projtrack_icon.ico --add-data "app/assets;app/assets" --name "Proj.Track Trial" main.py

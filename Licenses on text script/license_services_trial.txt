@@ -1,0 +1,212 @@
+import uuid
+import json
+
+from datetime import datetime
+
+from app.paths import APPDATA_DIR
+
+
+# =========================================
+# LICENSE FILE
+# =========================================
+
+LICENSE_FILE = APPDATA_DIR / "license.dat"
+
+
+# =========================================
+# DEVICE ID
+# =========================================
+
+def get_device_id():
+
+    return str(uuid.getnode())
+
+
+# =========================================
+# CHECK LICENSE FILE EXISTS
+# =========================================
+
+def has_existing_license():
+
+    return LICENSE_FILE.exists()
+
+
+# =========================================
+# CREATE TRIAL LICENSE
+# =========================================
+
+def create_trial_license():
+
+    # =====================================
+    # PREVENT RESET
+    # =====================================
+
+    if has_existing_license():
+
+        print(
+            "LICENSE ALREADY EXISTS"
+        )
+
+        return True
+
+    try:
+
+        license_data = {
+
+            "license_key":
+            "PROJTRACK-TRIAL-2026",
+
+            "device_id":
+            get_device_id(),
+
+            "activation_date":
+            datetime.now().strftime(
+                "%Y-%m-%d"
+            ),
+
+            "is_activated":
+            True
+
+        }
+
+        with open(
+
+            str(LICENSE_FILE),
+
+            "w"
+
+        ) as file:
+
+            json.dump(
+
+                license_data,
+
+                file
+
+            )
+
+        print(
+            "TRIAL ACTIVATED"
+        )
+
+        return True
+
+    except Exception as e:
+
+        print(
+            f"[Create Trial Error] {e}"
+        )
+
+        return False
+
+
+# =========================================
+# CHECK LICENSE VALIDITY
+# =========================================
+
+def is_license_valid():
+
+    try:
+
+        # =================================
+        # AUTO CREATE LICENSE
+        # =================================
+
+        if not has_existing_license():
+
+            create_trial_license()
+
+        # =================================
+        # LOAD LICENSE
+        # =================================
+
+        with open(
+
+            str(LICENSE_FILE),
+
+            "r"
+
+        ) as file:
+
+            data = json.load(file)
+
+        saved_key = data.get(
+            "license_key"
+        )
+
+        saved_device = data.get(
+            "device_id"
+        )
+
+        activation_date = data.get(
+            "activation_date"
+        )
+
+        activated = data.get(
+            "is_activated"
+        )
+
+        # =================================
+        # DEVICE VALIDATION
+        # =================================
+
+        if (
+
+            activated != True
+            or saved_device != get_device_id()
+            or saved_key !=
+            "PROJTRACK-TRIAL-2026"
+
+        ):
+
+            print(
+                "INVALID LICENSE"
+            )
+
+            return False
+
+        # =================================
+        # DATE VALIDATION
+        # =================================
+
+        activation_datetime = datetime.strptime(
+
+            activation_date,
+
+            "%Y-%m-%d"
+
+        )
+
+        current_datetime = datetime.now()
+
+        days_used = (
+
+            current_datetime - activation_datetime
+
+        ).days
+
+        print(
+            f"TRIAL DAYS USED: {days_used}"
+        )
+
+        # =================================
+        # 30 DAY LOCK
+        # =================================
+
+        if days_used >= 30:
+
+            print(
+                "TRIAL EXPIRED"
+            )
+
+            return False
+
+        return True
+
+    except Exception as e:
+
+        print(
+            f"[License Check Error] {e}"
+        )
+
+        return False

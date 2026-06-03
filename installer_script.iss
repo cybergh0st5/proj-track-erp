@@ -1,0 +1,89 @@
+; =========================================
+; PROJ.TRACK INSTALLER
+; =========================================
+
+#define MyAppName "Proj.Track"
+#define MyAppVersion "1.0"
+#define MyAppPublisher "PAI"
+#define MyAppExeName "Proj.Track.exe"
+
+[Setup]
+
+AppId={{A93B5E61-2F34-4D92-9A2A-PT001}}
+AppName={#MyAppName}
+AppVersion={#MyAppVersion}
+AppPublisher={#MyAppPublisher}
+
+DefaultDirName={autopf}\Proj.Track
+DefaultGroupName={#MyAppName}
+
+OutputDir=installer
+OutputBaseFilename=ProjTrack_Setup
+
+Compression=lzma
+SolidCompression=yes
+
+WizardStyle=modern
+
+PrivilegesRequired=admin
+
+SetupIconFile=app\assets\projtrack_icon.ico
+
+UninstallDisplayIcon={app}\{#MyAppExeName}
+
+ArchitecturesInstallIn64BitMode=x64
+
+; =========================================
+; FILES
+; =========================================
+
+[Files]
+
+Source: "dist\Proj.Track.exe"; DestDir: "{app}"; Flags: ignoreversion
+
+; =========================================
+; ICONS
+; =========================================
+
+[Icons]
+
+Name: "{group}\Proj.Track"; Filename: "{app}\{#MyAppExeName}"
+
+Name: "{autodesktop}\Proj.Track"; Filename: "{app}\{#MyAppExeName}"
+
+; =========================================
+; RUN AFTER INSTALL
+; =========================================
+
+[Run]
+
+Filename: "{app}\{#MyAppExeName}"; \
+Description: "Launch Proj.Track"; \
+Flags: nowait postinstall skipifsilent
+
+; =========================================
+; INSTALLER UI
+; =========================================
+
+[Tasks]
+
+Name: "desktopicon"; \
+Description: "Create Desktop Shortcut"; \
+GroupDescription: "Additional Tasks:"; \
+Flags: unchecked
+
+; =========================================
+; NOTES
+; =========================================
+; BUILD ORDER:
+;
+; 1. pyinstaller --windowed --onefile --clean --icon=app/assets/projtrack_icon.ico --add-data "app/assets;app/assets" --name "Proj.Track" main.py
+;
+; 2. Open this .iss in Inno Setup
+;
+; 3. Click Build
+;
+; 4. Installer output will appear in:
+;    installer\ProjTrack_Setup.exe
+;
+; =========================================

@@ -6,7 +6,7 @@ Desktop ERP application built with Python, SQLite, and CustomTkinter featuring p
 
 Proj.Track ERP is a desktop application designed to help small businesses manage projects, clients, quotations, invoices, inventory, expenses, profitability, and reporting from a single interface.
 
-This project was developed as a personal software engineering portfolio project and practical ERP solution for small business operations.
+This project was independently designed and developed as a desktop ERP solution for small businesses and serves as a software engineering portfolio project demonstrating application architecture, database design, reporting, and business process automation.
 
 ## Copyright Notice
 

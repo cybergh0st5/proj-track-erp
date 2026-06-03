@@ -1,6 +1,6 @@
 # Proj.Track ERP
 
-Project management and business tracking application built with Python, SQLite, and Tkinter.
+Desktop ERP application built with Python, SQLite, and CustomTkinter featuring project management, inventory tracking, quotations, invoicing, profitability analysis, reporting, and PDF document generation.
 
 ## Overview
 

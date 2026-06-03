@@ -84,8 +84,19 @@ https://drive.google.com/file/d/1DNVqkQAmFSzPVq6DOGZ6gKMDDlszulEa/view?usp=shari
 
 ---
 
-## Project Availability
+## Availability & Licensing
 
 Proj.Track ERP is currently a portfolio and demonstration project.
 
-If you are interested in testing, licensing, purchasing, or collaborating on this project, please contact the author.
+The source code, design, and associated materials remain the intellectual property of the author.
+
+Commercial licensing, testing opportunities, collaboration inquiries, and purchase discussions are available upon request.
+
+---
+
+## Copyright
+
+© 2026 Paul Andrew Idos. All Rights Reserved.
+
+This project is provided for portfolio and evaluation purposes only. Unauthorized copying, redistribution, modification, or commercial use of the software and associated materials is prohibited without written permission from the author.
+

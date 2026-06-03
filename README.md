@@ -50,7 +50,29 @@ If you are interested in licensing, purchasing, or collaborating on this project
 
 ## Screenshots
 
-Screenshots will be added soon.
+### Dashboard
+
+![Dashboard](docs/screenshots/dashboard.png)
+
+### Projects
+
+![Projects](docs/screenshots/projects.png)
+
+### Inventory
+
+![Inventory](docs/screenshots/inventory.png)
+
+### Quotations
+
+![Quotations](docs/screenshots/quotations.png)
+
+### Reports
+
+![Reports](docs/screenshots/reports.png)
+
+### Profitability
+
+![Profitability](docs/screenshots/profitability.png)
 
 ---
 

@@ -6,7 +6,7 @@ Desktop ERP application built with Python, SQLite, and CustomTkinter featuring p
 
 Proj.Track ERP is a desktop application designed to help small businesses manage projects, clients, quotations, invoices, inventory, expenses, profitability, and reporting from a single interface.
 
-This project was developed as a personal software engineering portfolio project and practical ERP solution for small business operations.
+This project was independently designed and developed as a desktop ERP solution for small businesses and serves as a software engineering portfolio project demonstrating application architecture, database design, reporting, and business process automation.
 
 ## Copyright Notice
 
@@ -84,9 +84,19 @@ https://drive.google.com/file/d/1DNVqkQAmFSzPVq6DOGZ6gKMDDlszulEa/view?usp=shari
 
 ---
 
-## Installation
+## Availability & Licensing
 
-1. Clone the repository
+Proj.Track ERP is currently a portfolio and demonstration project.
 
-```bash
-git clone https://github.com/cybergh0st5/proj-track-erp.git
+The source code, design, and associated materials remain the intellectual property of the author.
+
+Commercial licensing, testing opportunities, collaboration inquiries, and purchase discussions are available upon request.
+
+---
+
+## Copyright
+
+© 2026 Paul Andrew Idos. All Rights Reserved.
+
+This project is provided for portfolio and evaluation purposes only. Unauthorized copying, redistribution, modification, or commercial use of the software and associated materials is prohibited without written permission from the author.
+

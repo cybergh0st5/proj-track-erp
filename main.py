@@ -184,7 +184,7 @@ class ProjTrackApp(ctk.CTk):
 
         y = int(
             (screen_height - window_height) / 2
-        )
+        ) - 40
 
         self.geometry(
             f"{window_width}x{window_height}+{x}+{y}"
